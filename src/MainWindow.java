@@ -128,15 +128,14 @@ public class MainWindow extends JFrame {
         });
         background.add(figBtn);
 
-        background.addKeyListener(new KeyListener() {
+        this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
                 if (kanwa.drawSquare()) {
-                    kanwa.addSprajt(new Kwadrat((int) getMousePosition().getX(), (int) getMousePosition().getY()));
+                    kanwa.addSprajt(new Kwadrat((int) 10, (int) 10));
                 } else {
-                    kanwa.addSprajt(new Kolo((int) getMousePosition().getX(), (int) getMousePosition().getY()));
+                    kanwa.addSprajt(new Kolo((int) MouseInfo.getPointerInfo().getLocation().getX(), (int) MouseInfo.getPointerInfo().getLocation().getY()));
                 }
-                repaint();
                 System.out.println("eee");
             }
 
