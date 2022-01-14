@@ -105,6 +105,34 @@ public class MainWindow extends JFrame {
         background.add(clearBtn);
 
         Kanwa kanwa = new Kanwa();
+        kanwa.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                kanwa.mouseX = e.getX();
+                kanwa.mouseY = e.getY();
+                System.out.println(kanwa.mouseX + "," + kanwa.mouseY);
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
         background.add(kanwa);
         this.getContentPane().add(kanwa);
 
@@ -132,11 +160,11 @@ public class MainWindow extends JFrame {
             @Override
             public void keyTyped(KeyEvent e) {
                 if (kanwa.drawSquare()) {
-                    kanwa.addSprajt(new Kwadrat((int) 10, (int) 10));
+                    kanwa.addSprajt(new Kwadrat(kanwa.mouseX, kanwa.mouseY));
                 } else {
-                    kanwa.addSprajt(new Kolo((int) MouseInfo.getPointerInfo().getLocation().getX(), (int) MouseInfo.getPointerInfo().getLocation().getY()));
+                    kanwa.addSprajt(new Kolo(kanwa.mouseX, kanwa.mouseY));
                 }
-                System.out.println("eee");
+                System.out.println("KeyTyped");
             }
 
             @Override

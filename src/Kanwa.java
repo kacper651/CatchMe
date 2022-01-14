@@ -8,6 +8,9 @@ import java.awt.event.MouseListener;
 
 public class Kanwa extends JPanel{
 
+    int mouseX;
+    int mouseY;
+
     private boolean rysuj = true;
 
     Sprajt sp = null;
