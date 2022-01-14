@@ -3,14 +3,14 @@ import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
-public class Kanwa extends JPanel implements KeyListener {
+public class Kanwa extends JPanel implements KeyListener, MouseListener {
 
     private boolean rysuj = true;
 
     Sprajt sp = null;
-
-    Point location = MouseInfo.getPointerInfo().getLocation();
 
     public boolean isRysuj() {
         return rysuj;
@@ -71,7 +71,7 @@ public class Kanwa extends JPanel implements KeyListener {
         } else {
             addSprajt(new Kolo((int) getMousePosition().getX(), (int) getMousePosition().getY()));
         }
-        repaint();
+        repaint();//tu tez nie dziala
     }
 
     @Override
@@ -81,6 +81,37 @@ public class Kanwa extends JPanel implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
+
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        if (drawSquare()) {
+            addSprajt(new Kwadrat((int) getMousePosition().getX(), (int) getMousePosition().getY()));
+        } else {
+            addSprajt(new Kolo((int) getMousePosition().getX(), (int) getMousePosition().getY()));
+        }
+        repaint();
+        System.out.println("eee");
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
 
     }
 }

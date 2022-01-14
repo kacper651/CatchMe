@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.Random;
 
-public class MainWindow extends JFrame{
+public class MainWindow extends JFrame {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
@@ -127,5 +127,28 @@ public class MainWindow extends JFrame{
             }
         });
         background.add(figBtn);
+
+        background.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                if (kanwa.drawSquare()) {
+                    kanwa.addSprajt(new Kwadrat((int) getMousePosition().getX(), (int) getMousePosition().getY()));
+                } else {
+                    kanwa.addSprajt(new Kolo((int) getMousePosition().getX(), (int) getMousePosition().getY()));
+                }
+                repaint();
+                System.out.println("eee");//czemu nie działa?
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        });
     }
 }
