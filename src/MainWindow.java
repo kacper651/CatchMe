@@ -148,10 +148,9 @@ public class MainWindow extends JFrame {
                     figBtn.setText("Rysuj koło");
                     kanwa.setDrawSquare(false);
                 } else {
-                    kanwa.setDrawSquare(true);
                     figBtn.setText("Rysuj kwadrat");
+                    kanwa.setDrawSquare(true);
                 }
-                kanwa.repaint();
             }
         });
         background.add(figBtn);
@@ -160,11 +159,12 @@ public class MainWindow extends JFrame {
             @Override
             public void keyTyped(KeyEvent e) {
                 if (kanwa.drawSquare()) {
-                    kanwa.addSprajt(new Kwadrat(kanwa.mouseX, kanwa.mouseY));
+                    kanwa.addSprajt(new Kwadrat(kanwa.mouseX-50, kanwa.mouseY-50));
                 } else {
-                    kanwa.addSprajt(new Kolo(kanwa.mouseX, kanwa.mouseY));
+                    kanwa.addSprajt(new Kolo(kanwa.mouseX-50, kanwa.mouseY-50));
                 }
                 System.out.println("KeyTyped");
+                kanwa.repaint();
             }
 
             @Override
