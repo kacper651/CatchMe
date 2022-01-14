@@ -71,7 +71,7 @@ public class Kanwa extends JPanel implements KeyListener, MouseListener {
         } else {
             addSprajt(new Kolo((int) getMousePosition().getX(), (int) getMousePosition().getY()));
         }
-        repaint();//tu tez nie dziala
+        repaint();
     }
 
     @Override

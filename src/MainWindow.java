@@ -137,7 +137,7 @@ public class MainWindow extends JFrame {
                     kanwa.addSprajt(new Kolo((int) getMousePosition().getX(), (int) getMousePosition().getY()));
                 }
                 repaint();
-                System.out.println("eee");//czemu nie działa?
+                System.out.println("eee");
             }
 
             @Override
